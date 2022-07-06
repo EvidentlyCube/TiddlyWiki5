@@ -453,6 +453,9 @@ exports.formatDateString = function(date,template) {
 			[/^WW/, function() {
 				return $tw.utils.getWeek(date);
 			}],
+			[/^TIMESTAMP/, function() {
+				return date.getTime();
+			}],
 			[/^YY/, function() {
 				return $tw.utils.pad(date.getFullYear() - 2000);
 			}]
