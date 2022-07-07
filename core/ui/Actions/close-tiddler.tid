@@ -1,0 +1,5 @@
+title: $:/core/ui/Actions/close-tiddler
+tags: $:/tags/Actions
+description: closes the current tiddler
+
+<$action-sendmessage $message="tm-close-tiddler"/>
