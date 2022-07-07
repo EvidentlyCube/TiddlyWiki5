@@ -2620,7 +2620,7 @@ Global Hooks mechanism which allows plugins to modify default functionality
 $tw.hooks = $tw.hooks || { names: {}};
 
 /*
-Add hooks to the  hashmap
+Add hooks to the hashmap
 */
 $tw.hooks.addHook = function(hookName,definition) {
 	if($tw.utils.hop($tw.hooks.names,hookName)) {
@@ -2629,6 +2629,21 @@ $tw.hooks.addHook = function(hookName,definition) {
 	else {
 		$tw.hooks.names[hookName] = [definition];
 	}
+};
+
+/*
+Removes a previously added hook
+*/
+$tw.hooks.removeHook = function(hookName,definition) {
+	if($tw.utils.hop($tw.hooks.names,hookName)) {
+		var index = $tw.hooks.names[hookName].indexOf(definition);
+		if (index !== -1) {
+			$tw.hooks.names[hookName].splice(index, 1);
+			return true;
+		}
+	}
+	
+	return false;
 };
 
 /*
@@ -2643,6 +2658,7 @@ $tw.hooks.invokeHook = function(hookName /*, value,... */) {
 	}
 	return args[0];
 };
+
 
 /////////////////////////// Main boot function to decrypt tiddlers and then startup
 
