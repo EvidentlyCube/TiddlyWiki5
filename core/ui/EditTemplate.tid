@@ -10,6 +10,7 @@ title: $:/core/ui/EditTemplate
 <$action-sendmessage $message="tm-add-tag" $param={{{ [<newTagNameTiddler>get[text]] }}}/>
 <$action-sendmessage $message="tm-add-field" $name={{{ [<newFieldNameTiddler>get[text]] }}} $value={{{ [<newFieldNameTiddler>get[text]] :map[subfilter<get-field-value-tiddler-filter>get[text]] }}}/>
 <<delete-edittemplate-state-tiddlers>>
+{{$:/core/ui/Actions/save-tiddler}}
 <$action-sendmessage $message="tm-save-tiddler"/>
 \end
 
